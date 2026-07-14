@@ -7,9 +7,9 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
-import "./Dashboard.scss";
 
-// Datos de ejemplo para el "EDA de riesgo"
+// Eliminamos el import de ./Dashboard.scss hasta que exista
+
 const data = [
   { curso: "8vo Básico", riesgo: 12 },
   { curso: "1ro Medio", riesgo: 8 },
@@ -21,7 +21,6 @@ export const Dashboard = () => {
     <div className="dashboard-page">
       <h1>Análisis de Riesgo Académico</h1>
       <div className="chart-container">
-        {/* Aquí iría tu lógica de "pasar" los gráficos */}
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data}>
             <XAxis dataKey="curso" stroke="#fdfbf7" />
