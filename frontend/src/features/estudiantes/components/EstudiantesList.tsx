@@ -5,7 +5,7 @@ import {
   createEstudiante,
   updateEstudiante,
 } from "../estudiantes.api";
-import type { EstudianteData } from "../estudiantes.types";
+import type { EstudianteData } from "../types/estudiantes.types";
 import { EstudianteModal } from "./EstudianteModal";
 import "./EstudiantesList.scss";
 

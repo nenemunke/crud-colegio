@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { EstudianteData } from "../estudiantes.types";
+import type { EstudianteData } from "../types/estudiantes.types";
 import "./EstudianteModal.scss";
 
 interface Props {

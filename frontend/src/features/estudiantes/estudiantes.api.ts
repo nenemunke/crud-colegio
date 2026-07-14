@@ -1,5 +1,5 @@
 import api from "../../api/axiosInstance";
-import type { EstudianteData } from "./estudiantes.types.ts";
+import type { EstudianteData } from "./types/estudiantes.types.ts";
 
 // Función para listar todos los estudiantes
 export const getEstudiantes = () => api.get("/estudiantes");

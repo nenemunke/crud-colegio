@@ -1,0 +1,57 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d242e; // Tu color base
+
+  .login-box {
+    background-color: #4a3d4a; // Un tono un poco más claro para la caja
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #fdfbf7;
+
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #d9a05b;
+      }
+
+      input {
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: 6px;
+        border: 1px solid #6d5b6d;
+        background: #2d242e;
+        color: white;
+        box-sizing: border-box;
+      }
+    }
+
+    .btn-login {
+      width: 100%;
+      padding: 1rem;
+      background-color: #d9a05b; // Tu color mostaza
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
