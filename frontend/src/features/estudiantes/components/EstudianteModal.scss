@@ -1,0 +1,213 @@
+$card-malva: #8a738c;
+$texto-principal: #fdfbf7;
+$texto-secundario: #e0d5e2;
+$acento-mostaza: #d9a05b;
+$fondo-inputs: rgba(253, 251, 247, 0.1);
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(45, 36, 46, 0.7); // Fondo oscuro semitransparente
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background-color: $card-malva;
+  color: $texto-principal;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  animation: modalIn 0.3s ease-out forwards;
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .btn-cerrar {
+      background: transparent;
+      border: none;
+      color: $texto-secundario;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+
+      &:hover {
+        color: $texto-principal;
+      }
+    }
+  }
+
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      .form-group {
+        flex: 1;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-size: 0.9rem;
+        color: $texto-secundario;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      input[type="date"] {
+        background-color: $fondo-inputs;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: $texto-principal;
+        padding: 0.75rem;
+        border-radius: 8px;
+        outline: none;
+        transition: border-color 0.2s;
+
+        &:focus {
+          border-color: $acento-mostaza;
+        }
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+          cursor: pointer;
+        }
+      }
+    }
+
+    .checkbox-group {
+      flex-direction: row;
+      align-items: center;
+      margin-top: 0.5rem;
+
+      label {
+        color: $texto-principal;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+          width: 1.2rem;
+          height: 1.2rem;
+          accent-color: $acento-mostaza;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: none;
+      }
+
+      .btn-cancelar {
+        background: transparent;
+        color: $texto-secundario;
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: $texto-principal;
+        }
+      }
+
+      .btn-guardar {
+        background: $acento-mostaza;
+        color: #2d242e;
+        &:hover {
+          filter: brightness(1.1);
+          transform: translateY(-2px);
+        }
+      }
+    }
+    .foto-upload-group {
+      .drag-drop-zone {
+        position: relative;
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: rgba(253, 251, 247, 0.05);
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: $acento-mostaza;
+          background-color: rgba(253, 251, 247, 0.1);
+        }
+
+        .file-input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0; // Ocultamos el input feo por defecto, pero sigue siendo clickeable
+          cursor: pointer;
+          z-index: 2;
+        }
+
+        .foto-preview {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; // Para que la imagen llene el cuadro sin deformarse
+          z-index: 1;
+        }
+
+        .upload-placeholder {
+          color: $texto-secundario;
+          font-size: 0.9rem;
+          text-align: center;
+          padding: 1rem;
+          pointer-events: none; // Evita que el texto bloquee el clic
+        }
+      }
+    }
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

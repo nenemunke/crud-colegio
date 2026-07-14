@@ -13,8 +13,9 @@ const PORT = process.env.PORT || 3000;
 // Middlewares
 // CORS permite que nuestro frontend (en el puerto 5173) se comunique con este backend
 app.use(cors());
-// Permite que nuestro servidor entienda datos en formato JSON
-app.use(express.json());
+// Permite que nuestro servidor entienda datos en formato JSON con un límite de hasta 10MB para que pasen las imágenes en Base64
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 // Endpoint de prueba
 app.get("/api/health", async (req, res) => {
